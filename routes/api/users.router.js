@@ -1,5 +1,6 @@
 import express from "express";
 import {
+  getAllUsersController,
   deleteUserController,
   loginController,
   registerController,
@@ -15,18 +16,18 @@ import {
 import authMiddleware from "../../middlewares/auth.mw.js";
 import adminOrOwn from "../../middlewares/adminOrOwn.mw.js";
 import objectIdParamsValidationMiddleware from "../../middlewares/objectIdParamsValidation.mw.js";
+import isAdminMiddleware from "../../middlewares/isAdmin.mw.js";
 const router = express.Router();
 
 // http://localhost:3030/api/users
-router.get("/", (req, res) => {
-  res.json("users sub route");
-});
+router.get("/", authMiddleware, isAdminMiddleware, getAllUsersController);
 
 router.post(
   "/register",
   bodyValidationMiddleware(registerValidation),
   registerController
 );
+
 
 router.post(
   "/login",

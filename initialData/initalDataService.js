@@ -1,6 +1,6 @@
 import { createUser, createCard } from "../model/dbAdapter.js";
 import generateUniqueNumber from "../utils/generateUniqueNumber.js";
-
+//users pass Aa123456*
 const initialUsers = async () => {
   let users = [
     {
@@ -10,7 +10,7 @@ const initialUsers = async () => {
       },
       phone: "0500000000",
       email: "kenny@gmail.com",
-      password: "$2a$10$Tq3AH1Z0uEHo7MKbqMaUPOufejlQ8j8/Qs1Pne9YeKcyqOQVX28NK",
+      password: "$2a$12$hT96n7leQdAqENnTpH6qbebHQ3UVYgCT7pnlDcy.bexAi1L6P/fnK",
       image: {
         alt: "http://www.google.com",
       },
@@ -31,7 +31,7 @@ const initialUsers = async () => {
       },
       phone: "0500000000",
       email: "john@gmail.com",
-      password: "$2a$10$Tq3AH1Z0uEHo7MKbqMaUPOufejlQ8j8/Qs1Pne9YeKcyqOQVX28NK",
+      password: "$2a$12$hT96n7leQdAqENnTpH6qbebHQ3UVYgCT7pnlDcy.bexAi1L6P/fnK",
       image: {
         alt: "http://www.google.com",
       },
@@ -52,7 +52,7 @@ const initialUsers = async () => {
       },
       phone: "0500000000",
       email: "james@gmail.com",
-      password: "$2a$10$Tq3AH1Z0uEHo7MKbqMaUPOufejlQ8j8/Qs1Pne9YeKcyqOQVX28NK",
+      password: "$2a$12$hT96n7leQdAqENnTpH6qbebHQ3UVYgCT7pnlDcy.bexAi1L6P/fnK",
       image: {
         alt: "http://www.google.com",
       },
@@ -82,6 +82,7 @@ const initialUsers = async () => {
     // console.log(err);
   }
 };
+
 
 const initialCards = async (bizId) => {
   let cards = [

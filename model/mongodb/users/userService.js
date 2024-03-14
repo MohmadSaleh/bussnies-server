@@ -1,11 +1,11 @@
 import User from "./User.js";
 
 const createUserMongo = (userData) => {
-  //save user in mongoose
+
   let user = new User(userData);
   return user.save();
 };
-//rawnak a, ilan v
+
 const getAllUsersMongo = () => {
   return User.find({}, { password: 0 });
 };

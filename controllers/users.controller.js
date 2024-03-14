@@ -1,4 +1,5 @@
 import {
+  getAllUsers,
   getUserByEmail,
   createUser,
   updateUser,
@@ -9,6 +10,15 @@ import handleError from "../utils/handleError.js";
 import { generateHash, cmpHash } from "../utils/bcrypt.js";
 import { generateToken } from "../token/jwt.js";
 
+
+const getAllUsersController = async (req, res) => {
+  try {
+    let users = await getAllUsers();
+    res.json(users);
+  } catch (err) {
+    console.log(err);
+  }
+};
 const registerController = async (req, res) => {
   /**
    * validation | mw, joi
@@ -50,9 +60,9 @@ const loginController = async (req, res) => {
   try {
     let userFromDB = await getUserByEmail(req.body.email);
     // console.log(userFromDB);
-    if (!userFromDB) throw new Error("invalid email or password");
+    if (!userFromDB) throw new Error("invalid email or password*");
     let passwordMatch = await cmpHash(req.body.password, userFromDB.password);
-    if (!passwordMatch) throw new Error("invalid email or password");
+    if (!passwordMatch) throw new Error("invalid email or password**");
     let token = await generateToken({
       _id: userFromDB._id,
       isAdmin: userFromDB.isAdmin,
@@ -108,6 +118,7 @@ const deleteUserController = async (req, res) => {
 };
 
 export {
+  getAllUsersController,
   loginController,
   registerController,
   updateUserController,
