@@ -21,7 +21,6 @@ const getCardByIdMongo = (id) => {
 const getCardByBizNumberMongo = (bizNumber) => {
   return Card.findOne({ bizNumber });
 };
-//ilan v
 const getAllMyCardsMongo = (user_id) => {
   return Card.find({ user_id });
 };
@@ -29,10 +28,9 @@ const getAllMyCardsMongo = (user_id) => {
 const updateCardMongo = (id, cardData) => {
   return Card.findByIdAndUpdate(id, cardData, { new: true });
 };
-//oran m
+
 const updateLikeCardMongo = (id, likes) => {
   return Card.findByIdAndUpdate(id, { likes }, { new: true });
-  // return Card.findByIdAndUpdate(id, {likes: likes}, { new: true });
 };
 //delete
 const deleteCardMongo = (id) => {

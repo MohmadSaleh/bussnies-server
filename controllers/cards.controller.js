@@ -40,11 +40,7 @@ const getMyCardsController = async (req, res) => {
 };
 
 const createCardController = async (req, res) => {
-  /**
-   * user logged
-   * user logged in as biz
-   * joi on body
-   */
+
   try {
     const userId = req.userData._id;
     req.body.user_id = userId;
@@ -59,7 +55,6 @@ const createCardController = async (req, res) => {
 const updateCardController = async (req, res) => {
   try {
     const cardFromDb = await getCardById(req.params.id);
-    // console.log("cardFromDb", cardFromDb);
     let { user_id } = cardFromDb;
     user_id = user_id + "";
     if (!cardFromDb) {
@@ -78,7 +73,6 @@ const updateCardController = async (req, res) => {
   }
 };
 
-//oran m, rawnak a, sara l
 const patchLikeController = async (req, res) => {
   try {
     const cardFromDb = await getCardById(req.params.id);
@@ -100,14 +94,13 @@ const patchLikeController = async (req, res) => {
   }
 };
 
-//oran m, rawnak a, sara l
+
 const patchBizNumberController = async (req, res) => {
   try {
     const cardFromDb = await getCardById(req.params.id);
     if (!cardFromDb) {
       throw new Error("Card not found");
     }
-    //check bizNumber, also check if unique
     cardFromDb.bizNumber = req.body.bizNumber;
     let updatedCard = await updateCard(req.params.id, cardFromDb);
     return res.json(updatedCard);
@@ -117,7 +110,7 @@ const patchBizNumberController = async (req, res) => {
   }
 };
 
-//oran m, ilan v
+
 const deleteCardController = async (req, res) => {
   try {
     const cardFromDb = await getCardById(req.params.id);

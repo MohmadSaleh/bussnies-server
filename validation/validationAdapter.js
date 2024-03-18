@@ -38,7 +38,6 @@ const objectIdValidation = (id) => {
   }
 };
 
-//ilan v
 const createCardValidation = (userInput) => {
   if (VALIDATION === "joi") {
     return createCardSchemaValidation(userInput);

@@ -1,5 +1,3 @@
-//ilan v 👍
-
 import generateUniqueNumber from "../utils/generateUniqueNumber.js";
 
 const normalizeCards = async (cards) => {

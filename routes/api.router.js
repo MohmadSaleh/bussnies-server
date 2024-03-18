@@ -20,9 +20,5 @@ router.use((req, res) => {
   handleError(res, 404, "not found");
 });
 
-// http://localhost:3030/api/users
-// router.get("/users", (req, res) => {
-//   res.send("users route");
-// });
 
 export default router;

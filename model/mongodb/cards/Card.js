@@ -4,7 +4,7 @@ import Address from "../users/Address.js";
 import phoneRegex from "../../../utils/phoneRegex.js";
 import { DEFAULT_REQUIRED_STRING_VALIDATION } from "../helper/defaultStringValidation.helper.js";
 
-//ilan v :)
+
 const CardSchema = new mongoose.Schema({
   title: DEFAULT_REQUIRED_STRING_VALIDATION,
   subtitle: DEFAULT_REQUIRED_STRING_VALIDATION,
@@ -21,7 +21,6 @@ const CardSchema = new mongoose.Schema({
     type: String,
     required: true,
     trim: true,
-    // unique: true,
     match: RegExp(/^([a-zA-Z0-9_\-\.]+)@([a-zA-Z0-9_\-\.]+)\.([a-zA-Z]{2,5})$/),
   },
   web: {

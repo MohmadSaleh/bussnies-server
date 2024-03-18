@@ -49,7 +49,6 @@ router.patch(
   authMiddleware,
   objectIdParamsValidationMiddleware,
   adminOrOwn,
-  //add patch validation
   patchIsBizController
 );
 

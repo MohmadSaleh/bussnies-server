@@ -1,6 +1,5 @@
 import handleError from "../utils/handleError.js";
 
-//rawnak a
 const isAdminMiddleware = async (req, res, next) => {
   if (!req.userData) {
     throw new Error("you must be logged in");

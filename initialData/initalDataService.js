@@ -74,12 +74,10 @@ const initialUsers = async () => {
       if (!user.isAdmin && user.isBusiness) {
         bizId = userFromDb._id;
       }
-      // console.log("userFromDb", userFromDb);
     }
     return bizId;
   } catch (err) {
     return "";
-    // console.log(err);
   }
 };
 

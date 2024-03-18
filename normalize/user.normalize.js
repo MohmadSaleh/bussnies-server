@@ -1,15 +1,4 @@
 const normalizeUser = (user) => {
-  /**
-   * {
-   *  name:{
-   *  first
-   * last
-   * }
-   * image:{
-   * url:""
-   * }
-   * }
-   */
   let image;
 
   image = {
