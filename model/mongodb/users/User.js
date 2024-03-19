@@ -4,6 +4,7 @@ import Image from "./Image.js";
 import Address from "./Address.js";
 import phoneRegex from "../../../utils/phoneRegex.js";
 import passwordRegex from "../../../utils/passwordRegex.js";
+import emailRegex from "../../../utils/emailRegex.js";
 
 const UserSchema = new mongoose.Schema({
   name: Name,
@@ -17,13 +18,12 @@ const UserSchema = new mongoose.Schema({
     required: true,
     trim: true,
     unique: true,
-    match: RegExp(/^([a-zA-Z0-9_\-\.]+)@([a-zA-Z0-9_\-\.]+)\.([a-zA-Z]{2,5})$/),
+    match: RegExp(emailRegex),
   },
   password: {
     type: String,
     required: true,
-    minLength: 7,
-    maxLength: 20,
+    trim: true,
     match: RegExp(passwordRegex),
   },
   image: Image,

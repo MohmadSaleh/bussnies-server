@@ -115,10 +115,10 @@ const initialCards = async (bizId) => {
       user_id: bizId,
     },
     {
-      title: "a wonderful new card",
-      subtitle: "a test value for this card",
-      description: "a test value for new card\na test value for new card\n",
-      phone: "012-3211234",
+      title: "card 3",
+      subtitle: "sub card 3",
+      description: "description card 3",
+      phone: "0500000000",
       email: "qwe@gmail.com",
       web: "www.bing.com",
       image: {
