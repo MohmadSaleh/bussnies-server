@@ -2,6 +2,7 @@ import connectToMongo from "./mongodb/dbConnect.js";
 import connectToMySQL from "./mysql/dbConnect.js";
 import {
   getAllUsersMongo,
+  getUserByIdMongo,
   createUserMongo,
   deleteUserMongo,
   getUserByEmailMongo,
@@ -34,6 +35,11 @@ const connectToDb = () => {
 const getAllUsers = () => {
   if (DB === "mongo") {
     return getAllUsersMongo();
+  }
+};
+const getUserById = (id) => {
+  if (DB === "mongo") {
+    return getUserByIdMongo(id);
   }
 };
 
@@ -123,6 +129,7 @@ const deleteCard = (id) => {
 export default connectToDb;
 export {
   getAllUsers,
+  getUserById,
   createUser,
   createCard,
   getCardByBizNumber,

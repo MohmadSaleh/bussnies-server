@@ -1,6 +1,8 @@
 import express from "express";
 import {
   getAllUsersController,
+  getUserByIdController,
+  getUserByEmailController,
   deleteUserController,
   loginController,
   registerController,
@@ -21,6 +23,10 @@ const router = express.Router();
 
 // http://localhost:3030/api/users
 router.get("/", authMiddleware, isAdminMiddleware, getAllUsersController);
+
+router.get("/:id", authMiddleware, isAdminMiddleware, getUserByIdController);
+
+/* router.get("/email", authMiddleware, isAdminMiddleware, bodyValidationMiddleware(loginValidation), getUserByEmailController); */
 
 router.post(
   "/register",

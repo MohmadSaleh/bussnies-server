@@ -21,6 +21,13 @@ const loginValidation = (userInput) => {
     throw new Error(`Validation ${VALIDATION} is not supported`);
   }
 };
+const userByEmailValidation = (userInput) => {
+  if (VALIDATION === "joi") {
+    return loginSchemaValidation(userInput);
+  } else {
+    throw new Error(`Validation ${VALIDATION} is not supported`);
+  }
+};
 
 const editUserValidation = (userInput) => {
   if (VALIDATION === "joi") {
@@ -49,6 +56,7 @@ const createCardValidation = (userInput) => {
 export {
   registerValidation,
   loginValidation,
+  userByEmailValidation,
   editUserValidation,
   objectIdValidation,
   createCardValidation,

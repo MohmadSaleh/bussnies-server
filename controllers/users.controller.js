@@ -1,5 +1,6 @@
 import {
   getAllUsers,
+  getUserById,
   getUserByEmail,
   createUser,
   updateUser,
@@ -15,6 +16,22 @@ const getAllUsersController = async (req, res) => {
   try {
     let users = await getAllUsers();
     res.json(users);
+  } catch (err) {
+    console.log(err);
+  }
+};
+const getUserByIdController = async (req, res) => {
+  try {
+    let user = await getUserById(req.params.id);
+    res.json(user);
+  } catch (err) {
+    console.log(err);
+  }
+};
+const getUserByEmailController = async (req, res) => {
+  try {
+    let user = await getUserByEmail(req.body.email);
+    res.json(user);
   } catch (err) {
     console.log(err);
   }
@@ -94,6 +111,8 @@ const deleteUserController = async (req, res) => {
 
 export {
   getAllUsersController,
+  getUserByIdController,
+  getUserByEmailController,
   loginController,
   registerController,
   updateUserController,
